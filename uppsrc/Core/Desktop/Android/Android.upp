@@ -1,0 +1,14 @@
+description "Android desktop backend stub\377128,128,128";
+
+uses
+	Core,
+	Core/Desktop;
+
+file
+	AGENTS.md,
+	DesktopAndroid.h options(BUILDER_OPTION) PCH,
+	DesktopAndroid.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "";

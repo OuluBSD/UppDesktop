@@ -1,0 +1,13 @@
+description "Headless twin of the DesktopManager view model (DM2-011)";
+
+uses
+	Core,
+	DesktopModel;
+
+file
+	DesktopManagerProbe.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "",
+	"Valgrind" = "USEMALLOC";

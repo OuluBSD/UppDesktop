@@ -1,0 +1,14 @@
+description "macOS desktop backend stub\377128,128,128";
+
+uses
+	Core,
+	Core/Desktop;
+
+file
+	AGENTS.md,
+	DesktopMac.h options(BUILDER_OPTION) PCH,
+	DesktopMac.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "";

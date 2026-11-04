@@ -1,0 +1,14 @@
+description "Win32 desktop backend stub\377128,128,128";
+
+uses
+	Core,
+	Core/Desktop;
+
+file
+	AGENTS.md,
+	DesktopWin.h options(BUILDER_OPTION) PCH,
+	DesktopWin.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "";

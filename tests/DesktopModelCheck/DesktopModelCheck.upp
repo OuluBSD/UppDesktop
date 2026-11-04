@@ -1,0 +1,13 @@
+description "Headless gate check for the DesktopModel models";
+
+uses
+	Core,
+	DesktopModel;
+
+file
+	DesktopModelCheck.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "",
+	"Valgrind" = "USEMALLOC";

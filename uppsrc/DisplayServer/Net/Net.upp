@@ -1,0 +1,10 @@
+description "DisplayServer wire protocol + transport abstraction (NetworkDisplay/0006): framing, draw-command encoding, and the IDisplayTransport interface (real TCP implementation + shared-memory stub). No GUI dependency, so both DisplayServer itself and a plain console test client can link it.";
+
+uses
+	Core;
+
+file
+	Protocol.h,
+	Protocol.cpp,
+	Transport.h,
+	Transport.cpp;

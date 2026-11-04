@@ -1,0 +1,20 @@
+description "Headless desktop models shared by the X11 desktop packages";
+
+uses
+	Core;
+
+file
+	AGENTS.md,
+	DesktopModel.h,
+	WorkspaceModel.h,
+	WorkspaceModel.cpp,
+	WindowListModel.h,
+	WindowListModel.cpp,
+	WindowSource.h,
+	ScreenInfoModel.h,
+	ScreenInfoModel.cpp,
+	FrameGeometry.h;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "";

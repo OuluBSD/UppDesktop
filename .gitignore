@@ -1,0 +1,15 @@
+# Build artifacts
+bin/
+*.out
+*.exe
+*.o
+*.a
+*.so
+*.dylib
+.uppbuilder/
+build/
+_out/
+.cache/
+*~
+*.swp
+*.bak

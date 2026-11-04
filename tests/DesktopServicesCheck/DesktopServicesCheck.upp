@@ -1,0 +1,14 @@
+description "Headless fixture check for the Core/Desktop FreeDesktop backend";
+
+uses
+	Core,
+	Core/Desktop,
+	Core/Desktop/Free;
+
+file
+	DesktopServicesCheck.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "",
+	"Valgrind" = "USEMALLOC";

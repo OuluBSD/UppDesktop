@@ -1,0 +1,10 @@
+description "Minimal throwaway console client proving DisplayServer's network transport end-to-end (NetworkDisplay/0006): connects, sends a few distinctive draw commands, and prints any input events echoed back. Not a GUI app -- no DisplayServer/CtrlLib dependency, just the plain Net (protocol + transport) package.";
+
+uses
+	DisplayServer/Net;
+
+file
+	TestClient.cpp;
+
+mainconfig
+	"" = "";

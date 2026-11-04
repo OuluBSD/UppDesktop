@@ -1,0 +1,45 @@
+description "File manager over MountManager, with a headless twin";
+
+uses
+	Core,
+	Vfs/Core,
+	Core/Desktop,
+	Core/Desktop/Free;
+
+uses(GUI) CtrlLib, GridCtrl;
+
+file
+	AGENTS.md,
+	ExplorerLang.h,
+	ExplorerLang.cpp,
+	ExplorerLanguage.cpp,
+	Explorer.t charset "UTF-8",
+	ExplorerLog.h,
+	ExplorerLog.cpp,
+	ExplorerPolicy.h,
+	ExplorerPolicy.cpp,
+	ExplorerBookmarks.h,
+	ExplorerBookmarks.cpp,
+	ExplorerDemoVfs.h,
+	ExplorerDemoVfs.cpp,
+	ExplorerModel.h,
+	ExplorerModel.cpp,
+	ExplorerHeadless.cpp,
+	ExplorerSkin.h,
+	ExplorerSkin.cpp,
+	ExplorerGate.h,
+	ExplorerGate.cpp,
+	Explorer.h,
+	Explorer.cpp,
+	ExplorerLogWindow.h,
+	ExplorerLogWindow.cpp,
+	ExplorerIcons.h,
+	ExplorerIcons.cpp,
+	main.cpp,
+	Explorer.iml;
+
+mainconfig
+	"GUI" = "GUI",
+	"HEADLESS" = "",
+	"GUI (Valgrind)" = "USEMALLOC GUI",
+	"HEADLESS (Valgrind)" = "USEMALLOC"

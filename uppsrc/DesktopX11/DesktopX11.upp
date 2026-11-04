@@ -1,0 +1,24 @@
+description "\377B0,255,0";
+
+  uses
+  	Core,
+  	DesktopModel;
+
+  library(POSIX X11) X11;
+
+file
+	AGENTS.md,
+	DesktopX11.h,
+	X11WindowSource.h,
+	X11WindowSource.cpp,
+	X11ScreenSource.h,
+	X11ScreenSource.cpp,
+	X11WindowManager.h,
+	X11WindowManager.cpp,
+	X11FrameManager.h,
+	X11FrameManager.cpp,
+	X11Utils.h,
+	X11Utils.cpp;
+
+  mainconfig
+  	"X11" = "X11"

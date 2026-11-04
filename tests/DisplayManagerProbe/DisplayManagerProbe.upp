@@ -1,0 +1,12 @@
+description "Headless twin of the DisplayManager view model (DM2-011)";
+
+uses
+	Core,
+	DesktopModel;
+
+file
+	DisplayManagerProbe.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "";

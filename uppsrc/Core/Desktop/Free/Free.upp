@@ -1,0 +1,24 @@
+description "FreeDesktop/XDG backend for the desktop service contract\3770,128,128";
+
+uses
+	Core,
+	Core/Desktop;
+
+file
+	AGENTS.md,
+	DesktopFree.h options(BUILDER_OPTION) PCH,
+	DesktopFree.cpp,
+	XdgDirs.h,
+	XdgDirs.cpp,
+	XdgIconTheme.h,
+	XdgIconTheme.cpp,
+	XdgMime.h,
+	XdgMime.cpp,
+	XdgDesktopEntry.h,
+	XdgDesktopEntry.cpp,
+	XdgTrash.h,
+	XdgTrash.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "";

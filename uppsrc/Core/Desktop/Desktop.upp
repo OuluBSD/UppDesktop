@@ -1,0 +1,15 @@
+description "GUI-free desktop service contract and backend selection\3770,128,128";
+
+uses
+	Core;
+
+file
+	AGENTS.md,
+	Desktop.h options(BUILDER_OPTION) PCH,
+	DesktopCommon.h,
+	DesktopBackend.h,
+	Desktop.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "";

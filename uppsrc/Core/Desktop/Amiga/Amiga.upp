@@ -1,0 +1,14 @@
+description "AmigaOS desktop backend stub\377128,128,128";
+
+uses
+	Core,
+	Core/Desktop;
+
+file
+	AGENTS.md,
+	DesktopAmiga.h options(BUILDER_OPTION) PCH,
+	DesktopAmiga.cpp;
+
+mainconfig
+	"" = "",
+	"HEADLESS" = "";
