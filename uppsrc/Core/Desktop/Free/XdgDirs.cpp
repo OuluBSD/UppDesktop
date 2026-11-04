@@ -166,12 +166,12 @@ String ResolveUserDir(const XdgRoots& roots, const String& var, const String& fa
 			value = ExpandHomeValue(value, roots.home);
 			value = StripTrailingSlashes(value);
 			if(!value.IsEmpty())
-				return value;
+				return NormalizePath(value);
 		}
 	}
 	if(fallback.IsEmpty())
 		return Null;
-	return AppendFileName(roots.home, fallback);
+	return NormalizePath(AppendFileName(roots.home, fallback));
 }
 
 namespace {

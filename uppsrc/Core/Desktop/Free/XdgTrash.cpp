@@ -35,6 +35,7 @@ bool ParseTrashInfo(const String& file, TrashEntry& out)
 	out.trash_info = file;
 	out.trash_file = file;
 	out.trash_file.Replace("/info/", "/files/");
+	out.trash_file.Replace("\\info\\", "\\files\\");
 	out.trash_file.Replace(".trashinfo", "");
 	out.deletion_date = date;
 	out.valid = true;
@@ -72,26 +73,7 @@ bool CopyDirTree(const String& src, const String& dst)
 // Delete directory tree
 bool DeleteDirTree(const String& path)
 {
-	if(!DirectoryExists(path))
-		return true;
-	FindFile ff(AppendFileName(path, "*"));
-	while(ff) {
-		String path_full = ff.GetPath();
-		if(ff.IsFolder()) {
-			if(!DeleteDirTree(path_full))
-				return false;
-		}
-		else {
-			if(!FileDelete(path_full))
-				return false;
-		}
-		ff.Next();
-	}
-#ifdef PLATFORM_POSIX
-	return ::rmdir(~path) == 0;
-#else
-	return false;
-#endif
+	return DeleteFolderDeep(path);
 }
 
 // Find the trash directory for a given file's filesystem.

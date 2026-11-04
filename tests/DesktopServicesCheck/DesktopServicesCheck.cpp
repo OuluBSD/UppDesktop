@@ -46,7 +46,7 @@ static String g_root;
 
 static String FixtureFull(const String& rel)
 {
-	return AppendFileName(g_root, rel);
+	return NormalizePath(AppendFileName(g_root, rel));
 }
 
 //! Write one fixture file, creating its parent directories. Every write is
@@ -152,9 +152,9 @@ static void CheckXdgDirs()
 	Report(documents_ok, "the documents directory expands $HOME too");
 	Report(download_absent, "a directory that does not exist is dropped, not invented");
 
-	Report(ResolveUserDir(roots, "XDG_DESKTOP_DIR", "Desktop") == FixtureFull("home/Desktop"),
+	Report(NormalizePath(ResolveUserDir(roots, "XDG_DESKTOP_DIR", "Desktop")) == FixtureFull("home/Desktop"),
 	       "ResolveUserDir returns the declared path");
-	Report(ResolveUserDir(roots, "XDG_MUSIC_DIR", "Music") == FixtureFull("home/Music"),
+	Report(NormalizePath(ResolveUserDir(roots, "XDG_MUSIC_DIR", "Music")) == FixtureFull("home/Music"),
 	       "an undeclared variable falls back to $HOME/<fallback>");
 }
 
