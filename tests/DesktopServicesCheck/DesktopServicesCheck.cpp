@@ -140,10 +140,10 @@ static void CheckXdgDirs()
 	bool desktop_ok = false, documents_ok = false, download_absent = true;
 	for(const XdgUserDir& d : dirs) {
 		if(d.var == "XDG_DESKTOP_DIR") {
-			desktop_ok = d.path == FixtureFull("home/Desktop") && d.label == "Desktop";
+			desktop_ok = NormalizePath(d.path) == NormalizePath(FixtureFull("home/Desktop")) && d.label == "Desktop";
 		}
 		if(d.var == "XDG_DOCUMENTS_DIR") {
-			documents_ok = d.path == FixtureFull("home/Documents") && d.label == "Documents";
+			documents_ok = NormalizePath(d.path) == NormalizePath(FixtureFull("home/Documents")) && d.label == "Documents";
 		}
 		if(d.var == "XDG_DOWNLOAD_DIR")
 			download_absent = false;

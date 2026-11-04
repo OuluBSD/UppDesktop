@@ -137,7 +137,7 @@ Vector<XdgUserDir> LoadUserDirs(const XdgRoots& roots, bool check_existence)
 		if(value.IsEmpty())
 			continue;
 		value = ExpandHomeValue(value, roots.home);
-		value = StripTrailingSlashes(value);
+		value = NormalizePath(StripTrailingSlashes(value));
 		if(value.IsEmpty() || value == roots.home)
 			continue;
 		if(check_existence && !DirectoryExists(value))
