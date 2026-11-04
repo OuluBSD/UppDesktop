@@ -376,15 +376,15 @@ static void CheckScreenInfo()
 	printf("\n-- ScreenInfoModel: fake source, no display\n");
 
 	FakeScreenSource source;
-	ScreenMetrics small;
-	small.x = 0; small.y = 0; small.width = 1280; small.height = 800;
-	small.width_mm = 338; small.height_mm = 212;
+	ScreenMetrics small_screen;
+	small_screen.x = 0; small_screen.y = 0; small_screen.width = 1280; small_screen.height = 800;
+	small_screen.width_mm = 338; small_screen.height_mm = 212;
 	ScreenMetrics second;
 	second.x = 1280; second.y = 0; second.width = 1920; second.height = 1080;
 	// A virtual machine reporting no physical size: the model must answer 0
 	// rather than invent a DPI.
 	second.width_mm = 0; second.height_mm = 0;
-	source.metrics.Add(small);
+	source.metrics.Add(small_screen);
 	source.metrics.Add(second);
 
 	ScreenInfoModel screens;
@@ -410,7 +410,7 @@ static void CheckScreenInfo()
 	screens.SetTaskbarHeight(24);
 
 	// A changed screen is re-read in place, and the work area follows.
-	ScreenMetrics resized = small;
+	ScreenMetrics resized = small_screen;
 	resized.width = 2560;
 	source.metrics[0] = resized;
 	Report(screens.RefreshScreen(0, source), "screen 0 is re-read", screens.ToString());
