@@ -158,7 +158,7 @@ static void CheckXdgDirs()
 	       "an undeclared variable falls back to $HOME/<fallback>");
 }
 
-#ifdef PLATFORM_POSIX
+#if defined(PLATFORM_POSIX) && !defined(PLATFORM_MACOS)
 
 // -- Shell-folder chain ------------------------------------------------------
 //
@@ -635,7 +635,9 @@ CONSOLE_APP_MAIN
 	CheckXdgDirs();
 #ifdef PLATFORM_POSIX
 	CheckHostBackend();
+#if !defined(PLATFORM_MACOS)
 	CheckShellFolderChain();
+#endif
 #endif
 	CheckMime();
 	CheckDesktopEntry();
