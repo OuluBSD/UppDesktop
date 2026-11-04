@@ -35,6 +35,7 @@ CONSOLE_APP_MAIN
 #include "ExplorerSkin.h"
 
 using namespace Upp;
+namespace Upp { extern bool NoMemoryLeaksCheck; }
 
 // Shared startup: mount the host filesystem if nobody else has, and open the
 // rotating log. Both binaries do this so their view of the namespace is identical.

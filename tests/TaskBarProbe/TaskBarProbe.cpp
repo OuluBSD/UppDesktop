@@ -19,6 +19,8 @@
 
 using namespace Upp;
 
+namespace Upp { extern bool NoMemoryLeaksCheck; }
+
 static int failures = 0;
 
 static void Report(bool ok, const char* what, const String& detail)

@@ -17,6 +17,8 @@
 
 using namespace Upp;
 
+namespace Upp { extern bool NoMemoryLeaksCheck; }
+
 static int failures = 0;
 static int checks = 0;
 

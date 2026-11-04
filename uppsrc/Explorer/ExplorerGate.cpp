@@ -7,6 +7,8 @@
 
 NAMESPACE_UPP
 
+extern bool NoMemoryLeaksCheck;
+
 // ---------------------------------------------------------------------------
 // The gate's member surface. Defined outside namespace ExplorerGate because
 // they are members of Upp::Explorer and its composites, which that namespace
