@@ -1,7 +1,5 @@
 #include "ExplorerLang.h"
 
-NAMESPACE_UPP
-
 // The translations of Explorer's own strings.
 //
 // Core's own strings are registered from Core.t the same way; this is the same
@@ -14,4 +12,4 @@ NAMESPACE_UPP
 // twice.
 #define TFILE <Explorer/Explorer.t>
 #include <Core/t.h>
-END_UPP_NAMESPACE
+#undef TFILE

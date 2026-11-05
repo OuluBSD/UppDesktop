@@ -3,6 +3,10 @@
 
 #include "ExplorerLog.h"
 
+#ifdef DELETE
+#undef DELETE
+#endif
+
 NAMESPACE_UPP
 
 // Authorization for mutations Explorer performs.

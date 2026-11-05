@@ -1,7 +1,7 @@
-#include "ExplorerModel.h"
-
 #ifndef _Explorer_ExplorerLang_h_
 #define _Explorer_ExplorerLang_h_
+
+#include "ExplorerModel.h"
 
 NAMESPACE_UPP
 
