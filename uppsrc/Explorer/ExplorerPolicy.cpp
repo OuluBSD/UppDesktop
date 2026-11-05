@@ -1,5 +1,17 @@
 #include "ExplorerPolicy.h"
 
+#if defined(PLATFORM_WIN32)
+#define CY win32_CY_
+#define FAR win32_FAR_
+#include <shlobj.h>
+#undef Ptr
+#undef byte
+#undef CY
+#undef FAR
+#undef DELETE
+#undef DOUBLE_CLICK
+#endif
+
 NAMESPACE_UPP
 
 const char *ExplorerPolicy::ActionName(Action a)
@@ -211,8 +223,7 @@ String PlatformPolicyAdapter::ElevationMechanism() const
 String PlatformPolicyAdapter::PathRestriction(const String& path) const
 {
 	// Read-only system locations cannot be written at all, elevated or not.
-	String p = path;
-	p = p.MakeLower();
+	String p = ToLower(path);
 	if(p.StartsWith("c:\\windows\\system32\\config") || p.StartsWith("c:\\$recycle.bin"))
 		return String("'") + path + "' is protected by Windows and cannot be modified";
 	return String();
@@ -220,8 +231,7 @@ String PlatformPolicyAdapter::PathRestriction(const String& path) const
 
 bool PlatformPolicyAdapter::IsSystemPath(const String& path) const
 {
-	String p = path;
-	p = p.MakeLower();
+	String p = ToLower(path);
 	static const char *roots[] = {
 		"c:\\windows", "c:\\program files", "c:\\program files (x86)",
 		"c:\\programdata", nullptr
