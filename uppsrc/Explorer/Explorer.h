@@ -17,9 +17,16 @@
 
 NAMESPACE_UPP
 
+#ifdef DOUBLE_CLICK
+#undef DOUBLE_CLICK
+#endif
+
 // Persistent settings for Explorer, shared by GUI and headless twin.
 // Stored in the user's config directory as JSON.
 struct ExplorerSettings {
+#ifdef DOUBLE_CLICK
+#undef DOUBLE_CLICK
+#endif
 	// Activation policy: single-click or double-click to open
 	enum ActivatePolicy { SINGLE_CLICK, DOUBLE_CLICK };
 	ActivatePolicy activate_policy = DOUBLE_CLICK;

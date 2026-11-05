@@ -1,6 +1,10 @@
 #ifndef _Explorer_ExplorerModel_h
 #define _Explorer_ExplorerModel_h
 
+#ifdef DOUBLE_CLICK
+#undef DOUBLE_CLICK
+#endif
+
 #include "ExplorerLog.h"
 #include <Vfs/Core/VfsBase.h>
 
@@ -230,6 +234,9 @@ struct ExplorerModel : Moveable<ExplorerModel> {
 	// double-click requires two clicks to open (first selects, second opens).
 	// This is a global preference shared by all tabs/panes, and the headless
 	// twin respects it for its diagnostic activation tests.
+#ifdef DOUBLE_CLICK
+#undef DOUBLE_CLICK
+#endif
 	enum ActivatePolicy { SINGLE_CLICK, DOUBLE_CLICK };
 	void   SetActivatePolicy(ActivatePolicy p)  { activate_policy = p; }
 	ActivatePolicy GetActivatePolicy() const    { return activate_policy; }
