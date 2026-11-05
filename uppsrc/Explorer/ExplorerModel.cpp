@@ -513,8 +513,11 @@ bool ExplorerModel::SetPath(const String& new_path, String& error)
 {
 	error.Clear();
 
+	String np = new_path;
+	np.Replace("\\", "/");
+
 	VfsPath vp;
-	vp.Set(new_path);
+	vp.Set(np);
 
 	VfsPath rel;
 	MountPoint* mp = mounts.FindDeepest(vp, &rel);
@@ -562,7 +565,7 @@ bool ExplorerModel::SetPath(const String& new_path, String& error)
 
 	String sys_root = mp->vfs == (VFS*)nullptr ? String() : String();
 
-	path     = new_path;
+	path     = np;
 	rel_path = rel.AsSysPath("/");
 	mount    = mp;
 
