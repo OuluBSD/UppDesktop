@@ -1,17 +1,5 @@
 #include "ExplorerPolicy.h"
 
-#if defined(PLATFORM_WIN32)
-#define CY win32_CY_
-#define FAR win32_FAR_
-#include <shlobj.h>
-#undef Ptr
-#undef byte
-#undef CY
-#undef FAR
-#undef DELETE
-#undef DOUBLE_CLICK
-#endif
-
 NAMESPACE_UPP
 
 const char *ExplorerPolicy::ActionName(Action a)
@@ -212,7 +200,11 @@ bool PlatformPolicyAdapter::IsElevated() const
 	// CheckTokenMembership against the built-in Administrators group. Reported as a
 	// best-effort probe: a false result is treated as "not elevated", which the
 	// caller turns into a confirmation request, never into an allow.
-	return IsUserAnAdmin() != 0;
+	static int (__stdcall *fn_IsUserAnAdmin)(void) = nullptr;
+	ONCELOCK {
+		DllFn(fn_IsUserAnAdmin, "shell32.dll", "IsUserAnAdmin");
+	}
+	return fn_IsUserAnAdmin && fn_IsUserAnAdmin() != 0;
 }
 
 String PlatformPolicyAdapter::ElevationMechanism() const
